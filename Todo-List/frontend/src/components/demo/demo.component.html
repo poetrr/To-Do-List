@@ -1,0 +1,12 @@
+<div *ngIf="loading">Loading...</div>
+<div *ngIf="error">{{error}}</div>
+
+<ul *ngIf="todos && todos.length>0">
+    <li *ngFor="let todo of todos">
+        {{todo.title}}
+    </li>
+</ul>
+
+<div *ngIf="todos && todos.length==0 && !loading && !error">
+    No todos found
+</div>

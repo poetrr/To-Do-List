@@ -1,0 +1,34 @@
+
+<p>   Admin Login   </p>    
+<form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="loginbox">
+        <input type="email" name="email" placeholder="email" [(ngModel)]="email" required #emailModel="ngModel" (input)="clearErrors()" />
+        <br/>
+        <div *ngIf="formSubmitted && emailModel.invalid">
+            <div *ngIf="emailModel.errors?.['required']">username is required</div>
+        </div>
+        <br/><br/>
+        <input type="password" name="password" placeholder="password" [(ngModel)]="password" required #passwordModel="ngModel" (input)="clearErrors()"/>
+        <br/>
+        <div *ngIf="formSubmitted && passwordModel.invalid">
+            <div *ngIf="passwordModel.errors?.['required']">password is required</div>
+        </div>
+        
+        <br/><br/>
+        
+        <button type="submit">Login</button>
+        <button type="button" [routerLink]="['/register']">Register</button>
+         <div *ngIf="loginError && formSubmitted" >
+            <p style="color: red;">{{ loginError }}</p>
+        </div>
+
+        <div >
+            <!-- <button type="button" (click)="changeValueFunction()">Change Name</button> -->
+            <input name="changeName" type="text" [(ngModel)]="changeName">
+            
+            
+        </div>
+        
+    </div>
+</form>
+
